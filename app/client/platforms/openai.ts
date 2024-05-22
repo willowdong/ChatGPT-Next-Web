@@ -133,6 +133,10 @@ export class ChatGPTApi implements LLMApi {
       requestPayload["max_tokens"] = Math.max(modelConfig.max_tokens, 4000);
     }
 
+    if (modelConfig.model.includes("4o")) {  
+      requestPayload["max_tokens"] = Math.max(modelConfig.max_tokens, 4000);  
+    } 
+    
     console.log("[Request] openai payload: ", requestPayload);
 
     const shouldStream = !!options.config.stream;
